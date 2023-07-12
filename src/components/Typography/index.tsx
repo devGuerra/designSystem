@@ -3,6 +3,7 @@ import React from "react";
 import { Text } from "./styles";
 import { TextProps } from "react-native";
 import { tokens } from "../../styles/tokens";
+import { getLineHeightByFont } from "../utils/getLineHeightByFont";
 
 interface TypographyProps extends TextProps {
   size?: keyof typeof tokens.font.size;
@@ -25,11 +26,10 @@ export const Typography: React.FC<TypographyProps> = ({
   children,
   ...rest
 }) => {
-  const sizeValue = Number(tokens.font.size[size].value.replace("px", ""));
-  const lineHeightValue = Number(
-    tokens.line.height[lineHeight].value.replace("%", "")
-  );
-  const realLineHeight = (lineHeightValue * sizeValue) / 100;
+  const realLineHeight = getLineHeightByFont({
+    size,
+    lineHeight,
+  });
 
   return (
     <Text
