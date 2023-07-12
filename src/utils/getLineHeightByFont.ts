@@ -1,4 +1,4 @@
-import { tokens } from "../../styles/tokens";
+import { tokens } from "../styles/tokens";
 
 interface Props {
   size?: keyof typeof tokens.font.size;

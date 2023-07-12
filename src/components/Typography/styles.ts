@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
 import { TextProps } from "react-native";
 import { tokens } from "../../styles/tokens";
-import { getFontFamily } from "../utils/getFontFamily";
+import { getFontFamily } from "../../utils/getFontFamily";
 
 interface Props extends TextProps {
   size?: keyof typeof tokens.font.size;

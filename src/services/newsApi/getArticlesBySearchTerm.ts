@@ -27,6 +27,6 @@ export const getArticlesBySearchTerm = async (searchTerm: string) => {
 
     return results.data;
   } catch (error) {
-    console.error(JSON.stringify(error, null, 2));
+    return [];
   }
 };

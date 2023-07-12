@@ -1,4 +1,4 @@
-import { tokens } from "../../styles/tokens";
+import { tokens } from "../styles/tokens";
 
 interface Props {
   weight?: keyof typeof tokens.font.weight;
@@ -16,4 +16,5 @@ export const getFontFamily = ({ fontFamily = "highlight", weight }: Props) => {
         return "Archivo_400Regular";
     }
   }
+  return "sans-serif";
 };

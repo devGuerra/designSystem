@@ -3,7 +3,7 @@ import React from "react";
 import { Text } from "./styles";
 import { TextProps } from "react-native";
 import { tokens } from "../../styles/tokens";
-import { getLineHeightByFont } from "../utils/getLineHeightByFont";
+import { getLineHeightByFont } from "../../utils/getLineHeightByFont";
 
 interface TypographyProps extends TextProps {
   size?: keyof typeof tokens.font.size;
