@@ -7,7 +7,7 @@ import { Container } from "./styles";
 import { variants } from "./variants";
 
 interface ButtonProps extends TouchableOpacityProps {
-  borderRadius?: keyof typeof tokens.radius.size;
+  borderRadiusItem?: keyof typeof tokens.radius.size;
   padding?: keyof typeof tokens.spacing_squish.size;
   backgroundColor?:
     | keyof typeof tokens.neutral.color
@@ -18,7 +18,7 @@ interface ButtonProps extends TouchableOpacityProps {
 
 export const Button: React.FC<ButtonProps> = ({
   variant = "primary",
-  borderRadius,
+  borderRadiusItem,
   padding,
   backgroundColor,
   alignSelf = "stretch",
@@ -28,7 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
   return (
     <Container
       backgroundColor={backgroundColor || variants[variant].backgroundColor}
-      borderRadius={borderRadius || variants[variant].borderRadius}
+      borderRadiusItem={borderRadiusItem || variants[variant].borderRadius}
       padding={padding || variants[variant].padding}
       variant={variant}
       alignSelf={alignSelf}

@@ -6,8 +6,8 @@ import { variants } from "./variants";
 import { Container } from "./styles";
 
 interface ShapeProps extends ViewProps {
-  borderRadius?: keyof typeof tokens.radius.size;
-  borderWidth?: keyof typeof tokens.border.size;
+  borderRadiusItem?: keyof typeof tokens.radius.size;
+  borderWidthItem?: keyof typeof tokens.border.size;
   paddingBox?: keyof typeof tokens.spacing.size;
   borderColor?:
     | keyof typeof tokens.neutral.color
@@ -20,8 +20,8 @@ interface ShapeProps extends ViewProps {
 
 export const Shape: React.FC<ShapeProps> = ({
   variant = "default",
-  borderRadius,
-  borderWidth,
+  borderRadiusItem,
+  borderWidthItem,
   paddingBox,
   backgroundColor,
   borderColor,
@@ -30,8 +30,8 @@ export const Shape: React.FC<ShapeProps> = ({
 }) => {
   return (
     <Container
-      borderRadius={borderRadius || variants[variant].borderRadius}
-      borderWidth={borderWidth || variants[variant].borderWidth}
+      borderRadiusItem={borderRadiusItem || variants[variant].borderRadius}
+      borderWidthItem={borderWidthItem || variants[variant].borderWidth}
       backgroundColor={backgroundColor || variants[variant].backgroundColor}
       paddingBox={paddingBox || variants[variant].padding}
       borderColor={borderColor || variants[variant].borderColor}

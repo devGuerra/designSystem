@@ -4,8 +4,8 @@ import { tokens } from "../../styles/tokens";
 import { variants } from "./variants";
 
 interface Props extends ViewProps {
-  borderRadius?: keyof typeof tokens.radius.size;
-  borderWidth?: keyof typeof tokens.border.size;
+  borderRadiusItem?: keyof typeof tokens.radius.size;
+  borderWidthItem?: keyof typeof tokens.border.size;
   paddingBox?: keyof typeof tokens.spacing.size;
   borderColor?:
     | keyof typeof tokens.neutral.color
@@ -16,14 +16,15 @@ interface Props extends ViewProps {
 }
 
 export const Container = styled.View<Props>`
-  border-radius: ${({ borderRadius }) =>
-    tokens.radius.size[borderRadius]?.value};
+  border-radius: ${({ borderRadiusItem }) =>
+    tokens.radius.size[borderRadiusItem]?.value};
 
   background-color: ${({ backgroundColor }) =>
     tokens.brand.color.primary[backgroundColor]?.value ||
     tokens.neutral.color[backgroundColor]?.value};
 
-  border-width: ${({ borderWidth }) => tokens.border.size[borderWidth]?.value};
+  border-width: ${({ borderWidthItem }) =>
+    tokens.border.size[borderWidthItem]?.value};
 
   padding: ${({ paddingBox }) => tokens.spacing.size[paddingBox]?.value};
 

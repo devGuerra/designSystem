@@ -4,7 +4,7 @@ import { tokens } from "../../styles/tokens";
 import { variants } from "./variants";
 
 interface Props extends TouchableOpacityProps {
-  borderRadius?: keyof typeof tokens.radius.size;
+  borderRadiusItem?: keyof typeof tokens.radius.size;
   padding?: keyof typeof tokens.spacing_squish.size;
   backgroundColor?:
     | keyof typeof tokens.neutral.color
@@ -14,8 +14,8 @@ interface Props extends TouchableOpacityProps {
 }
 
 export const Container = styled.TouchableOpacity<Props>`
-  border-radius: ${({ borderRadius }) =>
-    tokens.radius.size[borderRadius]?.value};
+  border-radius: ${({ borderRadiusItem }) =>
+    tokens.radius.size[borderRadiusItem]?.value};
 
   background-color: ${({ backgroundColor }) =>
     tokens.brand.color.primary[backgroundColor]?.value ||
