@@ -13,7 +13,9 @@ interface GetArticlesBySearchTermResponse {
   articles: Article[];
 }
 
-export const getArticlesBySearchTerm = async (searchTerm: string) => {
+export const getArticlesBySearchTerm = async (
+  searchTerm: string
+): Promise<GetArticlesBySearchTermResponse> => {
   try {
     const results = await newsApi.get<GetArticlesBySearchTermResponse>(
       "/everything",
@@ -27,6 +29,6 @@ export const getArticlesBySearchTerm = async (searchTerm: string) => {
 
     return results.data;
   } catch (error) {
-    return [];
+    return [] as any;
   }
 };
