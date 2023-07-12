@@ -1,4 +1,5 @@
 # Desafio Tecnico Meiuca - Frontend
+![Component 1](https://github.com/devGuerra/designSystem/assets/6579736/35a48fd9-1d87-43ac-acfe-7f5b930e7ad0)
 
 🚀 Desafio técnico para vaga de desenvolvedor Frontend na empresa Meiuca
 
