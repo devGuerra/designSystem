@@ -1,6 +1,7 @@
 import styled from "styled-components/native";
 import { TextProps } from "react-native";
 import { tokens } from "../../styles/tokens";
+import { getFontFamily } from "../utils/getFontFamily";
 
 interface Props extends TextProps {
   size?: keyof typeof tokens.font.size;
@@ -10,12 +11,20 @@ interface Props extends TextProps {
     | keyof typeof tokens.brand.color.primary;
   align?: "center" | "left" | "right";
   lineHeight?: number;
+  fontFamily?: keyof typeof tokens.font.family;
 }
 
 export const Text = styled.Text<Props>`
-  font-weight: ${({ weight }) => tokens.font.weight[weight].value};
+  font-family: ${({ weight, fontFamily = "highlight" }) =>
+    getFontFamily({ fontFamily, weight })};
+
   font-size: ${({ size }) => tokens.font.size[size].value};
-  color: ${({ color }) => tokens.neutral.color[color].value};
+
+  color: ${({ color }) =>
+    tokens.neutral.color[color]?.value ||
+    tokens.brand.color.primary[color]?.value};
+
   text-align: ${({ align }) => align || "left"};
+
   line-height: ${({ lineHeight }) => lineHeight}px;
 `;

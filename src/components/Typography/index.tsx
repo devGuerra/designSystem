@@ -12,6 +12,7 @@ interface TypographyProps extends TextProps {
     | keyof typeof tokens.neutral.color
     | keyof typeof tokens.brand.color.primary;
   lineHeight?: keyof typeof tokens.line.height;
+  fontFamily?: keyof typeof tokens.font.family;
 }
 
 export const Typography: React.FC<TypographyProps> = ({
@@ -20,6 +21,7 @@ export const Typography: React.FC<TypographyProps> = ({
   color = "black",
   align = "left",
   lineHeight = "tight",
+  fontFamily,
   children,
   ...rest
 }) => {
@@ -27,10 +29,7 @@ export const Typography: React.FC<TypographyProps> = ({
   const lineHeightValue = Number(
     tokens.line.height[lineHeight].value.replace("%", "")
   );
-
   const realLineHeight = (lineHeightValue * sizeValue) / 100;
-
-  console.log("realLineHeight", realLineHeight);
 
   return (
     <Text
@@ -39,6 +38,7 @@ export const Typography: React.FC<TypographyProps> = ({
       color={color}
       align={align}
       lineHeight={realLineHeight}
+      fontFamily={fontFamily}
       {...rest}
     >
       {children}
